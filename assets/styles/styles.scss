@@ -1,7 +1,14 @@
-@use "../styles/" as *;
 // // @import url(../styles/_base.scss);
+@import "fonts";
 
 h1 {
-  color: $primaryColor;
-  font-family: $headerFontfamily;
+  color: $primary-color;
+  font-family: $header-font-family;
+  font-size: $header-font-size;
+}
+
+p {
+  color: $primary-color;
+  font-family: $main-font-family;
+  font-size: $base-font-size;
 }

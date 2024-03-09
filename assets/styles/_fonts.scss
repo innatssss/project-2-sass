@@ -1,16 +1,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 
-$headerFontfamily: "Bebas Neue";
+// Font family
+$header-font-family: "Bebas Neue";
+$main-font-family: "Quantico";
 
-$mainFontFamily: "Quantico";
+// Font color
+$primary-color: #232323;
+$background-color: #f6f0e6;
 
-$primaryColor: #232323;
+// Font size
+$base-font-size: 1rem;
+$big-font-size: $base-font-size * 1.25;
+$large-font-size: $base-font-size * 1.5;
+$xl-font-size: $base-font-size * 2.5;
+$header-font-size: $base-font-size * 12.5;
 
-$backgroundColor: #f6f0e6;
-
-$baseTextSize: 1rem;
-
-$uppercaseText: to-upper-case($string: "");
-
-
+// Text transform
+$uppercaseText: to-upper-case(
+  $string: "",
+);
