@@ -1,0 +1,7 @@
+@use "../styles/" as *;
+// // @import url(../styles/_base.scss);
+
+h1 {
+  color: $primaryColor;
+  font-family: $headerFontfamily;
+}
