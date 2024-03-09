@@ -1,10 +1,75 @@
-// // @import url(../styles/_base.scss);
-@import "fonts";
+@use "../styles/" as *;
 
-h1 {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $main-font-family;
+}
+
+.navbar {
+  padding: 10px;
+  display: flex;
+  width: 100vw;
+  justify-content: space-between;
+  align-items: center;
+  flex-flow: row wrap;
+}
+
+.navbar-menu {
+  position: relative;
+  display: inline-block;
+
+  .dropbtn {
+    background-color: white;
+    border: none;
+    font-size: $large-font-size;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    min-width: 160px;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  a {
+    color: $primary-color;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+
+  &:hover {
+    background-color: #f1f1f1;
+  }
+
+  &:hover .dropdown-content {
+    display: block;
+    right: 20px;
+  }
+
+  &:hover .dropdown-list--item:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+}
+
+@mixin header() {
   color: $primary-color;
   font-family: $header-font-family;
-  font-size: $header-font-size;
+  font-size: $header-font-size-sm;
+  width: 100vw;
+  text-align: center;
+}
+
+.header-main {
+  @include header();
 }
 
 p {
