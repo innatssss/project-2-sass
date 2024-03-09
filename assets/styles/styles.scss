@@ -1,5 +1,7 @@
 @use "../styles/" as *;
 
+@use "./components/card" as *;
+
 * {
   margin: 0;
   padding: 0;
@@ -68,8 +70,23 @@
   text-align: center;
 }
 
+@mixin h3-header() {
+  font-family: $main-font-family;
+  font-size: $large-font-size;
+}
+
 .header-main {
   @include header();
+}
+
+.h3-header {
+  @include h3-header();
+}
+
+.card {
+  border: $base-border;
+  margin: $base-margin;
+  padding: $base-padding;
 }
 
 p {

@@ -1,3 +1,5 @@
+@use "../styles/fonts";
+
 a {
   text-decoration: none;
 }
@@ -5,3 +7,9 @@ a {
 hr {
   border: 1px solid;
 }
+
+$base-margin: 24px;
+
+$base-padding: 18px;
+
+$base-border: 1px solid #232323;

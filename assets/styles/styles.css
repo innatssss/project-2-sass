@@ -69,6 +69,17 @@ hr {
   text-align: center;
 }
 
+.h3-header {
+  font-family: "Quantico";
+  font-size: 1.5rem;
+}
+
+.card {
+  border: 1px solid #232323;
+  margin: 24px;
+  padding: 18px;
+}
+
 p {
   color: #232323;
   font-family: "Quantico";
