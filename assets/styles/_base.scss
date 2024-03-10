@@ -1,15 +1,12 @@
-@use "../styles/fonts";
+@use "fonts";
 
-a {
-  text-decoration: none;
-}
+$base-link-dec: none;
+$base-list-style: none;
 
-hr {
-  border: 1px solid;
-}
+$base-margin: 16px;
 
-$base-margin: 24px;
+$base-padding: 16px;
 
-$base-padding: 18px;
-
-$base-border: 1px solid #232323;
+// Borders
+$border-width: 1px;
+$base-border: $border-width solid fonts.$primary-color;

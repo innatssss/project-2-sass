@@ -1,12 +1,42 @@
 @use "../styles/" as *;
 
-@use "./components/card" as *;
+@use "../styles/components/card";
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: $main-font-family;
+}
+
+@mixin header() {
+  color: $primary-color;
+  font-family: $header-font-family;
+  font-size: $header-font-size-sm;
+  width: 100vw;
+  text-align: center;
+}
+
+@mixin h2-header() {
+  font-family: $main-font-family;
+  font-size: $xl-font-size;
+  text-transform: uppercase;
+}
+
+@mixin main-text() {
+  color: $primary-color;
+  font-family: $main-font-family;
+  font-size: $base-font-size;
+}
+
+@mixin li() {
+  list-style: $base-list-style;
+}
+
+@mixin a() {
+  color: $primary-color;
+  text-decoration: $base-link-dec;
+  display: block;
 }
 
 .navbar {
@@ -38,14 +68,11 @@
   }
 
   li {
-    list-style: none;
-  }
-
-  a {
-    color: $primary-color;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
+    @include li();
+    a {
+      @include a();
+      padding: 12px 16px;
+    }
   }
 
   &:hover {
@@ -62,35 +89,145 @@
   }
 }
 
-@mixin header() {
-  color: $primary-color;
-  font-family: $header-font-family;
-  font-size: $header-font-size-sm;
-  width: 100vw;
-  text-align: center;
-}
-
-@mixin h3-header() {
-  font-family: $main-font-family;
-  font-size: $large-font-size;
-}
-
 .header-main {
   @include header();
 }
 
-.h3-header {
-  @include h3-header();
+%h3-header {
+  @include h2-header();
+  font-size: $large-font-size;
 }
 
-.card {
+hr {
   border: $base-border;
-  margin: $base-margin;
-  padding: $base-padding;
 }
 
-p {
-  color: $primary-color;
-  font-family: $main-font-family;
-  font-size: $base-font-size;
+.main-text {
+  @include main-text();
 }
+
+// Work compilation list
+.h2-header {
+  @include h2-header;
+  padding-bottom: $base-padding * 1.2;
+  background: none;
+  display: block;
+}
+
+.dropdown {
+  @include li();
+  position: relative;
+  width: 100%;
+
+  .dropdown-btn {
+    @extend %h3-header;
+    color: $primary-color;
+    text-transform: uppercase;
+    background: none;
+    width: 100%;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+
+    .arrow {
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 6px solid #1d1f24;
+      transition: transform ease-in-out 0.3s;
+    }
+  }
+
+  .dropdown-content {
+    list-style: none;
+    position: absolute;
+    width: 100%;
+    visibility: hidden;
+    transform: translateY(-1em);
+    transition: transform ease 0.3s;
+  }
+}
+
+input[type="checkbox"]:checked ~ .dropdown-content {
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-content li {
+  background: #2f3238;
+  border-radius: 0.5em;
+}
+
+input[type="checkbox"]:checked + label > .arrow {
+  transform: rotate(180deg);
+}
+
+input[type="checkbox"] {
+  opacity: 0;
+  position: absolute;
+}
+
+input[type="checkbox"]:focus + label {
+  box-shadow: 0 0 20px rgb(83, 83, 83);
+}
+
+.dropdown-content li:hover {
+  background: #1d1f24;
+}
+
+.dropdown-content li a {
+  display: block;
+  padding: 0.7em 0.5em;
+  color: #fff;
+  margin: 0.1em 0;
+  text-decoration: none;
+}
+
+// nav {
+//   background: none;
+//   margin: 40px auto;
+
+//   .h2-header {
+//     @include h2-header;
+//     padding-bottom: $base-padding * 1.2;
+//     background: none;
+//     display: block;
+//   }
+
+//   .list-item {
+//     list-style: none;
+//   }
+// }
+
+// .list-item-header {
+//   @extend %h3-header;
+//   display: block;
+//   cursor: pointer;
+
+//   &::after {
+//     float: right;
+//     right: 10%;
+//     content: "+";
+//   }
+// }
+
+// .slide {
+//   clear: both;
+//   width: 100%;
+//   height: 0px;
+//   overflow: hidden;
+//   text-align: center;
+//   transition: height 2000ms ease;
+// }
+
+// #touch {
+//   position: absolute;
+//   opacity: 1;
+//   height: 0px;
+// }
+
+// #touch:checked + .slide {
+//   height: 300px;
+//   color: red;
+// }

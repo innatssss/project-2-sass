@@ -1,0 +1,12 @@
+@use "../fonts" as *;
+@use "../base" as *;
+
+.card {
+  border: $base-border;
+  margin: $base-margin;
+  padding: $base-padding;
+}
+
+.base-position {
+  margin: $base-margin;
+}
