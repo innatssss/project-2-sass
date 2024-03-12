@@ -36,6 +36,12 @@
   font-size: 1.5rem;
   cursor: pointer;
 }
+.navbar-menu .dropbtn i {
+  color: #232323;
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+}
 .navbar-menu .dropdown-content {
   display: none;
   position: absolute;
