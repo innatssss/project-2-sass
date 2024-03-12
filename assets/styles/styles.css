@@ -50,6 +50,7 @@
   color: #232323;
   text-decoration: none;
   display: block;
+  cursor: pointer;
   padding: 12px 16px;
 }
 .navbar-menu:hover {
@@ -201,9 +202,130 @@ hr {
   flex-direction: row;
   justify-content: space-between;
   margin-right: 16px;
+  padding-top: 32px;
 }
 .menu-list .menu-item .main-link {
   color: #232323;
   text-decoration: none;
   display: block;
+  cursor: pointer;
+}
+
+#dark-footer {
+  background-color: #393939;
+  color: #f6f0e6;
+}
+
+.flex-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 32px;
+  padding: 16px;
+  background-color: #393939;
+}
+.flex-footer .logo-f {
+  padding: 16px;
+  border: 2px solid #f9f9f9;
+  width: 90vw;
+  align-self: center;
+  border-bottom: none;
+}
+.flex-footer .logo-f h5 {
+  font-family: "Bebas Neue";
+  font-size: 1.25rem;
+}
+.flex-footer .nav-list-footer {
+  align-self: center;
+}
+.flex-footer .nav-list-footer ul {
+  list-style: none;
+  padding: 16px;
+  border: 2px solid #f9f9f9;
+  width: 90vw;
+  align-self: center;
+}
+.flex-footer .nav-list-footer ul a {
+  color: #232323;
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+  color: #f6f0e6;
+}
+.flex-footer .address-f {
+  padding: 16px;
+  border: 2px solid #f9f9f9;
+  width: 90vw;
+  align-self: center;
+  border-top: none;
+}
+.flex-footer .address-f address {
+  font-style: normal;
+}
+.flex-footer .address-f address a {
+  color: #232323;
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+  display: inline-block;
+  color: #f6f0e6;
+}
+.flex-footer .email-f {
+  padding: 16px;
+  border: 2px solid #f9f9f9;
+  width: 90vw;
+  align-self: center;
+  border-top: none;
+}
+.flex-footer .email-f address {
+  font-style: normal;
+}
+.flex-footer .email-f address a {
+  color: #232323;
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+  display: inline-block;
+  color: #f6f0e6;
+  margin-left: 8px;
+  padding-bottom: 16px;
+}
+.flex-footer .email-f .phone-f {
+  display: flex;
+  align-items: center;
+}
+.flex-footer .email-f .phone-f .phone-num {
+  margin-left: 8px;
+}
+.flex-footer .email-f .phone-f .phone-num span {
+  display: block;
+}
+.flex-footer .social-links-f {
+  padding: 16px;
+  border: 2px solid #f9f9f9;
+  width: 90vw;
+  align-self: center;
+  border-top: none;
+  display: flex;
+  justify-content: space-between;
+  font-size: 2.5rem;
+}
+.flex-footer .social-links-f a {
+  color: #232323;
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+  color: #f6f0e6;
+}
+.flex-footer .privacy-f {
+  padding: 16px;
+  border: 2px solid #f9f9f9;
+  width: 90vw;
+  align-self: center;
+  border-top: none;
+}
+.flex-footer .privacy-f small {
+  display: block;
+  line-height: 2rem;
 }/*# sourceMappingURL=styles.css.map */

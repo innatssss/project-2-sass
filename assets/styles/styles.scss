@@ -38,6 +38,7 @@
   color: $primary-color;
   text-decoration: $base-link-dec;
   display: block;
+  cursor: pointer;
 }
 
 .navbar {
@@ -224,9 +225,109 @@ hr {
   .menu-item {
     @include flex-container();
     margin-right: $base-margin;
+    padding-top: $base-padding * 2;
 
     .main-link {
       @include a();
+    }
+  }
+}
+
+// Footer styling
+@mixin block-footer {
+  padding: $base-padding;
+  border: 2px solid #f9f9f9;
+  width: 90vw;
+  align-self: center;
+}
+
+#dark-footer {
+  background-color: #393939;
+  color: $background-color;
+}
+
+.flex-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 32px;
+  padding: $base-padding;
+  background-color: $foter-dark-background;
+
+  .logo-f {
+    @include block-footer();
+    border-bottom: none;
+    h5 {
+      font-family: "Bebas Neue";
+      font-size: $big-font-size;
+    }
+  }
+  .nav-list-footer {
+    align-self: center;
+    ul {
+      @include li();
+      @include block-footer();
+
+      a {
+        @include a();
+        color: $background-color;
+      }
+    }
+  }
+  .address-f {
+    @include block-footer();
+    border-top: none;
+    address {
+      font-style: normal;
+      a {
+        @include a();
+        display: inline-block;
+        color: $background-color;
+      }
+    }
+  }
+  .email-f {
+    @include block-footer();
+    border-top: none;
+    address {
+      font-style: normal;
+      a {
+        @include a();
+        display: inline-block;
+        color: $background-color;
+        margin-left: $base-margin / 2;
+        padding-bottom: $base-padding;
+      }
+    }
+    .phone-f {
+      display: flex;
+      align-items: center;
+      .phone-num {
+        margin-left: $base-margin / 2;
+        span {
+          display: block;
+        }
+      }
+    }
+  }
+  .social-links-f {
+    @include block-footer();
+    border-top: none;
+    display: flex;
+    justify-content: space-between;
+    font-size: $xl-font-size;
+    a {
+      @include a();
+      color: $background-color;
+    }
+  }
+  .privacy-f {
+    @include block-footer();
+    border-top: none;
+    small {
+      display: block;
+      line-height: 2rem;
     }
   }
 }
