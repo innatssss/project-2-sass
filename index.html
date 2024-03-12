@@ -64,45 +64,65 @@
           </p>
         </div>
       </section>
-      <section id="our-work" class="base-position">
+      <section id="our-work">
         <h2 class="h2-header">What we do:</h2>
-        <ul class="work-list">
-          <li class="dropdown">
-            <input type="checkbox" id="dropdown" />
-            <label for="dropdown" class="dropdown-btn">
-              <span>Family houses</span>
-              <span class="arrow"></span>
-            </label>
-
-            <ul class="dropdown-content" role="menu">
-              <li><p>Another work</p></li>
-              <li><p>Another houses</p></li>
-              <li><a href="#">Vue</a></li>
-              <li><a href="#">Svelte</a></li>
-            </ul>
-
-
-            <!-- <lable for="touch"
-              ><span class="list-item-header">Family houses</span>
-            </lable>
-            <input type="checkbox" id="touch" />
-            <div class="slide">
-              <ul>
-                <li><p>Another work</p></li>
-                <li><p>Another houses</p></li>
-              </ul>
+        <div class="work-list">
+          <div class="section--family-houses">
+            <h3 class="h3-header">Family houses <span class="arrow"></span></h3>
+            <div class="grid-container">
+              <img
+                class="small-img-grid1"
+                src="./assets/images/family-houses-1.jpg"
+                alt="house view"
+              />
+              <img
+                class="small-img-grid2"
+                src="./assets/images/family-houses-2.jpg"
+                alt="house view"
+              />
+              <img
+                class="larg-img-grid"
+                src="./assets/images/family-houses-3.jpg"
+                alt="house view"
+              />
             </div>
-          </li> -->
+            <div class="flex-container">
+              <h3 class="h3-header">Recent work</h3>
+              <a class="main-link" href=""
+                >more <span><i class="fa-solid fa-arrow-right"></i></span
+              ></a>
+            </div>
+            <p class="base-text">
+              Individual house with 3 bedrooms and an office
+            </p>
+            <p class="upper-text">Vyshneve, Kyiv Oblast</p>
+            <img
+              class="recent-work-img"
+              src="./assets/images/recent-work.jpg"
+              alt="house view"
+            />
+          </div>
+        </div>
+      </section>
+      <section id="menu">
+        <ul class="menu-list">
+          <li class="menu-item">
+            <a class="main-link" href="">Comercial real estate </a>
+            <div><i class="fa-solid fa-arrow-right"></i></div>
+          </li>
+          <hr />
 
-          <li class="list-item">
-            <a href="#" class="list-item-header">Commercial real estate</a>
+          <li class="menu-item">
+            <a class="main-link" href="">Public buildings </a>
+            <div><i class="fa-solid fa-arrow-right"></i></div>
           </li>
-          <li class="list-item">
-            <a href="#" class="list-item-header">Public buildings</a>
+          <hr />
+
+          <li class="menu-item">
+            <a class="main-link" href="">Engineering</a>
+            <div><i class="fa-solid fa-arrow-right"></i></div>
           </li>
-          <li class="list-item">
-            <a href="#" class="list-item-header">Engineering</a>
-          </li>
+          <hr />
         </ul>
       </section>
     </main>

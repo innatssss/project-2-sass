@@ -58,6 +58,7 @@
 .navbar-menu:hover .dropdown-content {
   display: block;
   right: 20px;
+  z-index: 1;
 }
 .navbar-menu:hover .dropdown-list--item:hover {
   background-color: rgba(0, 0, 0, 0.2);
@@ -71,15 +72,18 @@
   text-align: center;
 }
 
-.dropdown .dropdown-btn {
+.menu-list, .flex-container .main-link, .section--family-houses .h3-header {
   font-family: "Quantico";
   font-size: 2.5rem;
   text-transform: uppercase;
+  margin-left: 16px;
   font-size: 1.5rem;
 }
 
 hr {
   border: 1px solid #232323;
+  margin: 0;
+  width: 100%;
 }
 
 .main-text {
@@ -92,73 +96,114 @@ hr {
   font-family: "Quantico";
   font-size: 2.5rem;
   text-transform: uppercase;
+  margin-left: 16px;
   padding-bottom: 19.2px;
   background: none;
   display: block;
 }
 
-.dropdown {
-  list-style: none;
-  position: relative;
-  width: 100%;
-}
-.dropdown .dropdown-btn {
-  color: #232323;
-  text-transform: uppercase;
-  background: none;
-  width: 100%;
-  border: none;
+.section--family-houses .h3-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  cursor: pointer;
+  margin-right: 16px;
 }
-.dropdown .dropdown-btn .arrow {
+.section--family-houses .h3-header .arrow {
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
   border-top: 6px solid #1d1f24;
-  transition: transform ease-in-out 0.3s;
 }
-.dropdown .dropdown-content {
-  list-style: none;
+.section--family-houses .grid-container {
+  display: grid;
+  width: 100%;
+  justify-items: center;
+  align-items: center;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  padding: 16px;
+}
+.section--family-houses .grid-container .small-img-grid1 {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  width: 99%;
+}
+.section--family-houses .grid-container .small-img-grid2 {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  width: 99%;
+}
+.section--family-houses .grid-container .larg-img-grid {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  width: 99%;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-right: 16px;
+  margin-bottom: 16px;
+}
+.flex-container .main-link {
+  color: #232323;
+  position: relative;
+  text-decoration: none;
+}
+.flex-container .main-link::after {
+  content: "";
   position: absolute;
   width: 100%;
-  visibility: hidden;
-  transform: translateY(-1em);
-  transition: transform ease 0.3s;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #0f1011;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+.flex-container .main-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }
 
-input[type=checkbox]:checked ~ .dropdown-content {
-  visibility: visible;
-  transform: translateY(0);
+.base-text {
+  color: #232323;
+  font-family: "Quantico";
+  font-size: 1rem;
+  margin-left: 16px;
 }
 
-.dropdown-content li {
-  background: #2f3238;
-  border-radius: 0.5em;
+.upper-text {
+  color: #232323;
+  font-family: "Quantico";
+  font-size: 1rem;
+  text-transform: uppercase;
+  padding: 16px;
 }
 
-input[type=checkbox]:checked + label > .arrow {
-  transform: rotate(180deg);
+.recent-work-img {
+  width: 100%;
+  padding: 16px;
 }
 
-input[type=checkbox] {
-  opacity: 0;
-  position: absolute;
+.menu-list {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-direction: column;
 }
-
-input[type=checkbox]:focus + label {
-  box-shadow: 0 0 20px rgb(83, 83, 83);
+.menu-list .menu-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-right: 16px;
 }
-
-.dropdown-content li:hover {
-  background: #1d1f24;
-}
-
-.dropdown-content li a {
-  display: block;
-  padding: 0.7em 0.5em;
-  color: #fff;
-  margin: 0.1em 0;
+.menu-list .menu-item .main-link {
+  color: #232323;
   text-decoration: none;
+  display: block;
 }/*# sourceMappingURL=styles.css.map */

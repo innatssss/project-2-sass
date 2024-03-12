@@ -21,6 +21,7 @@
   font-family: $main-font-family;
   font-size: $xl-font-size;
   text-transform: uppercase;
+  margin-left: $base-margin;
 }
 
 @mixin main-text() {
@@ -82,6 +83,7 @@
   &:hover .dropdown-content {
     display: block;
     right: 20px;
+    z-index: 1;
   }
 
   &:hover .dropdown-list--item:hover {
@@ -100,6 +102,8 @@
 
 hr {
   border: $base-border;
+  margin: 0;
+  width: 100%;
 }
 
 .main-text {
@@ -114,120 +118,115 @@ hr {
   display: block;
 }
 
-.dropdown {
-  @include li();
-  position: relative;
-  width: 100%;
-
-  .dropdown-btn {
+.section--family-houses {
+  .h3-header {
     @extend %h3-header;
-    color: $primary-color;
-    text-transform: uppercase;
-    background: none;
-    width: 100%;
-    border: none;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    cursor: pointer;
+    margin-right: $base-margin;
 
     .arrow {
       border-left: 5px solid transparent;
       border-right: 5px solid transparent;
       border-top: 6px solid #1d1f24;
-      transition: transform ease-in-out 0.3s;
     }
   }
-
-  .dropdown-content {
-    list-style: none;
-    position: absolute;
+  .grid-container {
+    display: grid;
     width: 100%;
-    visibility: hidden;
-    transform: translateY(-1em);
-    transition: transform ease 0.3s;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $base-margin;
+    padding: $base-padding;
+
+    .small-img-grid1 {
+      grid-column-start: 1;
+      grid-column-end: 2;
+      width: 99%;
+    }
+
+    .small-img-grid2 {
+      grid-column-start: 2;
+      grid-column-end: 3;
+      width: 99%;
+    }
+
+    .larg-img-grid {
+      grid-column-start: 1;
+      grid-column-end: 3;
+      grid-row-start: 2;
+      grid-row-end: 3;
+      width: 99%;
+    }
   }
 }
 
-input[type="checkbox"]:checked ~ .dropdown-content {
-  visibility: visible;
-  transform: translateY(0);
+@mixin flex-container() {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
-.dropdown-content li {
-  background: #2f3238;
-  border-radius: 0.5em;
+.flex-container {
+  @include flex-container();
+  margin-right: $base-margin;
+  margin-bottom: $base-margin;
+
+  .main-link {
+    @extend %h3-header;
+    color: $primary-color;
+    position: relative;
+    text-decoration: $base-link-dec;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      transform: scaleX(0);
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: #0f1011;
+      transform-origin: bottom right;
+      transition: transform 0.25s ease-out;
+    }
+    &:hover::after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }
+  }
 }
 
-input[type="checkbox"]:checked + label > .arrow {
-  transform: rotate(180deg);
+.base-text {
+  @include main-text();
+  margin-left: $base-margin;
 }
 
-input[type="checkbox"] {
-  opacity: 0;
-  position: absolute;
+.upper-text {
+  @include main-text();
+  text-transform: uppercase;
+  padding: $base-padding;
 }
 
-input[type="checkbox"]:focus + label {
-  box-shadow: 0 0 20px rgb(83, 83, 83);
+.recent-work-img {
+  width: 100%;
+  padding: $base-padding;
 }
 
-.dropdown-content li:hover {
-  background: #1d1f24;
+.menu-list {
+  @extend %h3-header;
+  @include li();
+  @include flex-container();
+  flex-direction: column;
+
+  .menu-item {
+    @include flex-container();
+    margin-right: $base-margin;
+
+    .main-link {
+      @include a();
+    }
+  }
 }
-
-.dropdown-content li a {
-  display: block;
-  padding: 0.7em 0.5em;
-  color: #fff;
-  margin: 0.1em 0;
-  text-decoration: none;
-}
-
-// nav {
-//   background: none;
-//   margin: 40px auto;
-
-//   .h2-header {
-//     @include h2-header;
-//     padding-bottom: $base-padding * 1.2;
-//     background: none;
-//     display: block;
-//   }
-
-//   .list-item {
-//     list-style: none;
-//   }
-// }
-
-// .list-item-header {
-//   @extend %h3-header;
-//   display: block;
-//   cursor: pointer;
-
-//   &::after {
-//     float: right;
-//     right: 10%;
-//     content: "+";
-//   }
-// }
-
-// .slide {
-//   clear: both;
-//   width: 100%;
-//   height: 0px;
-//   overflow: hidden;
-//   text-align: center;
-//   transition: height 2000ms ease;
-// }
-
-// #touch {
-//   position: absolute;
-//   opacity: 1;
-//   height: 0px;
-// }
-
-// #touch:checked + .slide {
-//   height: 300px;
-//   color: red;
-// }
