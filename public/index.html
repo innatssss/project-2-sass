@@ -21,11 +21,13 @@
   </head>
   <body>
     <header>
-      <section class="navbar">
+      <section class="top-nav">
         <div class="navbar-logo"><span>bauhaus.</span></div>
-        <div class="navbar-menu">
-          <button class="dropbtn"><i class="fa-solid fa-bars"></i></button>
-          <ul class="dropdown-content">
+         <input id="menu-toggle" type="checkbox" />
+        <label class="menu-button-container" for="menu-toggle">
+        <div class="menu-button"><i class="fa-solid fa-bars"></i></div>
+        </label>
+          <ul class="menu">
             <li class="dropdown-list--item"><a href="">Home</a></li>
             <li class="dropdown-list--item"><a href="">Services</a></li>
             <li class="dropdown-list--item"><a href="">Projects</a></li>
@@ -69,23 +71,29 @@
         <h2 class="h2-header">What we do:</h2>
         <div class="work-list">
           <div class="section--family-houses">
-            <h3 class="h3-header">Family houses <span class="arrow"></span></h3>
+            <h3 class="h3-header grid-text">Family houses <span class="arrow"></span></h3>
             <div class="grid-container">
-              <img
-                class="small-img-grid1"
-                src="./assets/images/family-houses-1.jpg"
-                alt="house view"
-              />
-              <img
-                class="small-img-grid2"
-                src="./assets/images/family-houses-2.jpg"
-                alt="house view"
-              />
-              <img
-                class="larg-img-grid"
-                src="./assets/images/family-houses-3.jpg"
-                alt="house view"
-              />
+              <div class="small-img-grid1">
+                <img
+                  class="galery-img"
+                  src="./assets/images/family-houses-1.jpg"
+                  alt="house view"
+                />
+              </div>
+              <div class="small-img-grid2"> 
+                <img
+                  class="galery-img"
+                  src="./assets/images/family-houses-2.jpg"
+                  alt="house view"
+                />
+              </div>
+              <div class="larg-img-grid">
+                <img
+                  class="galery-img"
+                  src="./assets/images/family-houses-3.jpg"
+                  alt="house view"
+                />
+              </div>
             </div>
             <div class="flex-container">
               <h3 class="h3-header">Recent work</h3>
@@ -93,15 +101,21 @@
                 >more <span><i class="fa-solid fa-arrow-right"></i></span
               ></a>
             </div>
-            <p class="base-text">
-              Individual house with 3 bedrooms and an office
-            </p>
-            <p class="upper-text">Vyshneve, Kyiv Oblast</p>
-            <img
-              class="recent-work-img"
-              src="./assets/images/recent-work.jpg"
-              alt="house view"
-            />
+            <div class="flex-container--recent-work">
+              <div class="recent-work-text">
+                <p class="base-text">
+                  Individual house with 3 bedrooms and an office
+                </p>
+                <p class="upper-text">Vyshneve, Kyiv Oblast</p>
+              </div>
+              <div class="recent-work-img">
+                <img
+                  class="galery-img"
+                  src="./assets/images/recent-work.jpg"
+                  alt="house view"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -112,7 +126,6 @@
             <div><i class="fa-solid fa-arrow-right"></i></div>
           </li>
           <hr />
-
           <li class="menu-item">
             <a class="main-link" href="">Public buildings </a>
             <div><i class="fa-solid fa-arrow-right"></i></div>

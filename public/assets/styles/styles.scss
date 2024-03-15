@@ -9,11 +9,25 @@
   font-family: $main-font-family;
 }
 
+body {
+  animation: fadeInAnimation ease 1500ms;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 @mixin header() {
   color: $primary-color;
   font-family: $header-font-family;
   font-size: $header-font-size-sm;
-  width: 100vw;
   text-align: center;
 }
 
@@ -41,65 +55,95 @@
   cursor: pointer;
 }
 
-.navbar {
-  padding: 10px;
+@mixin flex-container() {
   display: flex;
-  width: 100vw;
+  flex-direction: row;
   justify-content: space-between;
+}
+
+.top-nav {
+  @include flex-container();
+  background: none;
+  color: $primary-color;
+  height: 54px;
+  padding: $base-padding;
+}
+
+.menu {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  a {
+    @include a();
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      transform: scaleX(0);
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: #0f1011;
+      transform-origin: bottom right;
+      transition: transform 0.25s ease-out;
+    }
+    &:hover::after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }
+  }
+}
+
+.menu > li {
+  margin: 0 1rem;
+  overflow: hidden;
+}
+
+.menu-button-container {
+  display: none;
+  height: 100%;
+  width: 30px;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  flex-flow: row wrap;
 }
 
-.navbar-menu {
-  position: relative;
-  display: inline-block;
-
-  .dropbtn {
-    background-color: white;
-    border: none;
-    font-size: $large-font-size;
-    cursor: pointer;
-    i {
-      @include a();
-    }
-  }
-
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    min-width: 160px;
-    pointer-events: none;
-  }
-
-  li {
-    @include li();
-    a {
-      @include a();
-      padding: 12px 16px;
-    }
-  }
-
-  &:hover {
-    background-color: #f1f1f1;
-  }
-
-  &:hover .dropdown-content {
-    display: block;
-    right: 20px;
-    z-index: 1;
-    pointer-events: auto;
-  }
-
-  &:hover .dropdown-list--item:hover {
-    background-color: rgba(0, 0, 0, 0.2);
-  }
+#menu-toggle {
+  display: none;
 }
 
+.menu-button,
+.menu-button::before,
+.menu-button::after {
+  display: block;
+  position: absolute;
+  height: 4px;
+  width: 30px;
+  transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  border-radius: 2px;
+}
+
+// main section
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(10%);
+  }
+  75% {
+    transform: translateX(-5%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
 .header-main {
   @include header();
+  width: 100%;
+  animation: 2000ms ease-out -500ms 1 slideInLeft;
 }
 
 %h3-header {
@@ -144,36 +188,31 @@ hr {
     width: 100%;
     justify-items: center;
     align-items: center;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(8, 1fr);
     gap: $base-margin;
     padding: $base-padding;
 
+    .galery-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
     .small-img-grid1 {
-      grid-column-start: 1;
-      grid-column-end: 2;
-      width: 99%;
+      grid-column: 1 / span 4;
+      grid-row: 1 / span 4;
     }
 
     .small-img-grid2 {
-      grid-column-start: 2;
-      grid-column-end: 3;
-      width: 99%;
+      grid-column: 5 / span 4;
+      grid-row: 1 / span 4;
     }
 
     .larg-img-grid {
-      grid-column-start: 1;
-      grid-column-end: 3;
-      grid-row-start: 2;
-      grid-row-end: 3;
-      width: 99%;
+      grid-column: 1 / span 8;
+      grid-row: 5 / span 4;
     }
   }
-}
-
-@mixin flex-container() {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
 }
 
 .flex-container {
@@ -336,4 +375,113 @@ hr {
       line-height: 2rem;
     }
   }
+}
+
+// Style for phone size navbar
+@media (max-width: 700px) {
+  .menu-button-container {
+    display: flex;
+  }
+  .menu {
+    position: absolute;
+    top: 0;
+    margin-top: 54px;
+    left: 0;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    li {
+      display: flex;
+      justify-content: center;
+      margin: 0;
+      padding: 0.5rem 0;
+      width: 100%;
+      color: $background-color;
+      background-color: $foter-dark-background;
+      a {
+        @include a();
+        color: $background-color;
+      }
+    }
+  }
+  #menu-toggle ~ .menu li {
+    height: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  #menu-toggle:checked ~ .menu li {
+    border: $base-border;
+    height: 2.5rem;
+    padding: $base-padding * 0.5;
+  }
+  .menu > li:not(:last-child) {
+    border-bottom: $base-border;
+  }
+}
+
+@media (min-width: 720px) {
+  .header-main {
+    @include header();
+    font-size: $header-font-size-lg;
+    letter-spacing: 1.5rem;
+    width: auto;
+  }
+
+  #goal-container {
+    @include flex-container();
+    margin: 0 $base-margin * 2 $base-margin * 5;
+    .card {
+      width: 33%;
+      padding: 24px;
+      &:hover {
+        border: 2px solid #393939;
+      }
+    }
+  }
+
+  .section--family-houses {
+    width: 90%;
+    margin: 2rem auto;
+
+    .grid-container {
+      grid-template-columns: repeat(12, 1fr);
+      .small-img-grid1 {
+        grid-column: 3 / span 2;
+        grid-row: 2 / span 2;
+      }
+
+      .small-img-grid2 {
+        grid-column: 5 / span 2;
+        grid-row: 2 / span 2;
+      }
+
+      .larg-img-grid {
+        grid-column: 7 / span 4;
+        grid-row: 2 / span 2;
+      }
+    }
+
+    .flex-container--recent-work {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      width: 100%;
+    }
+    .recent-work-img {
+      padding: 0;
+      width: 80%;
+    }
+  }
+  .menu-list {
+    margin: $base-margin * 4;
+  }
+}
+
+.galery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

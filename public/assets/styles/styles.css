@@ -17,69 +17,110 @@
   font-family: "Quantico";
 }
 
-.navbar {
-  padding: 10px;
+body {
+  animation: fadeInAnimation ease 1500ms;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.top-nav {
   display: flex;
-  width: 100vw;
+  flex-direction: row;
   justify-content: space-between;
-  align-items: center;
-  flex-flow: row wrap;
+  background: none;
+  color: #232323;
+  height: 54px;
+  padding: 16px;
 }
 
-.navbar-menu {
+.menu {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+}
+.menu a {
+  color: #232323;
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
   position: relative;
-  display: inline-block;
 }
-.navbar-menu .dropbtn {
-  background-color: white;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-}
-.navbar-menu .dropbtn i {
-  color: #232323;
-  text-decoration: none;
-  display: block;
-  cursor: pointer;
-}
-.navbar-menu .dropdown-content {
-  display: none;
+.menu a::after {
+  content: "";
   position: absolute;
-  background-color: #f9f9f9;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-  min-width: 160px;
-  pointer-events: none;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #0f1011;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
 }
-.navbar-menu li {
-  list-style: none;
-}
-.navbar-menu li a {
-  color: #232323;
-  text-decoration: none;
-  display: block;
-  cursor: pointer;
-  padding: 12px 16px;
-}
-.navbar-menu:hover {
-  background-color: #f1f1f1;
-}
-.navbar-menu:hover .dropdown-content {
-  display: block;
-  right: 20px;
-  z-index: 1;
-  pointer-events: auto;
-}
-.navbar-menu:hover .dropdown-list--item:hover {
-  background-color: rgba(0, 0, 0, 0.2);
+.menu a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }
 
+.menu > li {
+  margin: 0 1rem;
+  overflow: hidden;
+}
+
+.menu-button-container {
+  display: none;
+  height: 100%;
+  width: 30px;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#menu-toggle {
+  display: none;
+}
+
+.menu-button,
+.menu-button::before,
+.menu-button::after {
+  display: block;
+  position: absolute;
+  height: 4px;
+  width: 30px;
+  transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  border-radius: 2px;
+}
+
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(10%);
+  }
+  75% {
+    transform: translateX(-5%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
 .header-main {
   color: #232323;
   font-family: "Bebas Neue";
   font-size: 8rem;
-  width: 100vw;
   text-align: center;
+  width: 100%;
+  animation: 2000ms ease-out -500ms 1 slideInLeft;
 }
 
 .menu-list, .flex-container .main-link, .section--family-houses .h3-header {
@@ -128,26 +169,27 @@ hr {
   width: 100%;
   justify-items: center;
   align-items: center;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(8, 1fr);
   gap: 16px;
   padding: 16px;
 }
+.section--family-houses .grid-container .galery-img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
 .section--family-houses .grid-container .small-img-grid1 {
-  grid-column-start: 1;
-  grid-column-end: 2;
-  width: 99%;
+  grid-column: 1/span 4;
+  grid-row: 1/span 4;
 }
 .section--family-houses .grid-container .small-img-grid2 {
-  grid-column-start: 2;
-  grid-column-end: 3;
-  width: 99%;
+  grid-column: 5/span 4;
+  grid-row: 1/span 4;
 }
 .section--family-houses .grid-container .larg-img-grid {
-  grid-column-start: 1;
-  grid-column-end: 3;
-  grid-row-start: 2;
-  grid-row-end: 3;
-  width: 99%;
+  grid-column: 1/span 8;
+  grid-row: 5/span 4;
 }
 
 .flex-container {
@@ -337,4 +379,113 @@ hr {
 .flex-footer .privacy-f small {
   display: block;
   line-height: 2rem;
+}
+
+@media (max-width: 700px) {
+  .menu-button-container {
+    display: flex;
+  }
+  .menu {
+    position: absolute;
+    top: 0;
+    margin-top: 54px;
+    left: 0;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  .menu li {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0.5rem 0;
+    width: 100%;
+    color: #f6f0e6;
+    background-color: #393939;
+  }
+  .menu li a {
+    color: #232323;
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+    color: #f6f0e6;
+  }
+  #menu-toggle ~ .menu li {
+    height: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  #menu-toggle:checked ~ .menu li {
+    border: 1px solid #232323;
+    height: 2.5rem;
+    padding: 8px;
+  }
+  .menu > li:not(:last-child) {
+    border-bottom: 1px solid #232323;
+  }
+}
+@media (min-width: 720px) {
+  .header-main {
+    color: #232323;
+    font-family: "Bebas Neue";
+    font-size: 8rem;
+    text-align: center;
+    font-size: 12rem;
+    letter-spacing: 1.5rem;
+    width: auto;
+  }
+  #goal-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 32px 80px;
+  }
+  #goal-container .card {
+    width: 33%;
+    padding: 24px;
+  }
+  #goal-container .card:hover {
+    border: 2px solid #393939;
+  }
+  .section--family-houses {
+    width: 90%;
+    margin: 2rem auto;
+  }
+  .section--family-houses .grid-container {
+    grid-template-columns: repeat(12, 1fr);
+  }
+  .section--family-houses .grid-container .small-img-grid1 {
+    grid-column: 3/span 2;
+    grid-row: 2/span 2;
+  }
+  .section--family-houses .grid-container .small-img-grid2 {
+    grid-column: 5/span 2;
+    grid-row: 2/span 2;
+  }
+  .section--family-houses .grid-container .larg-img-grid {
+    grid-column: 7/span 4;
+    grid-row: 2/span 2;
+  }
+  .section--family-houses .flex-container--recent-work {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    width: 100%;
+  }
+  .section--family-houses .recent-work-img {
+    padding: 0;
+    width: 80%;
+  }
+  .menu-list {
+    margin: 64px;
+  }
+}
+.galery-img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }/*# sourceMappingURL=styles.css.map */
