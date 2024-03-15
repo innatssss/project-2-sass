@@ -446,9 +446,11 @@ hr {
   #goal-container .card {
     width: 33%;
     padding: 24px;
+    transition: all 200ms ease-in-out;
   }
   #goal-container .card:hover {
     border: 2px solid #393939;
+    scale: 1.1;
   }
   .section--family-houses {
     width: 90%;
@@ -481,6 +483,61 @@ hr {
   }
   .menu-list {
     margin: 64px;
+  }
+  .flex-footer {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    width: 100%;
+    justify-items: center;
+    align-items: center;
+  }
+  .flex-footer .logo-f {
+    width: -moz-fit-content;
+    width: fit-content;
+    border: none;
+    grid-column: 1/2;
+    grid-row: 1/2;
+  }
+  .flex-footer .nav-list-footer ul {
+    width: auto;
+    border: none;
+    grid-column: 2/3;
+    grid-row: 1/2;
+  }
+  .flex-footer .address-f {
+    width: auto;
+    border: none;
+    grid-column: 3/5;
+    grid-row: 1/2;
+  }
+  .flex-footer .email-f {
+    width: auto;
+    border: none;
+    grid-column: 5/7;
+    grid-row: 1/2;
+  }
+  .flex-footer .social-links-f {
+    width: 20vw;
+    border: none;
+    grid-column: 7/9;
+    grid-row: 1/2;
+  }
+  .flex-footer .social-links-f a {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .flex-footer .social-links-f a i {
+    margin: 8px;
+  }
+  .flex-footer .privacy-f {
+    width: auto;
+    border: none;
+    grid-column: 1/9;
+    grid-row: 2/3;
+  }
+  .flex-footer .privacy-f small {
+    display: inline-block;
   }
 }
 .galery-img {
