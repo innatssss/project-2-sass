@@ -13,6 +13,7 @@ body {
   animation: fadeInAnimation ease 1500ms;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
+  background-color: $background-color;
 }
 
 @keyframes fadeInAnimation {

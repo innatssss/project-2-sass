@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+.scroll-nav {
+  background: #f6f0e6;
+  white-space: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.scroll-nav::-webkit-scrollbar {
+  display: none;
+}
+.scroll-nav .scroll-list--item {
+  font-size: 1.25rem;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1.5;
+  padding: 0.8rem;
+  margin: 8px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #232323;
+  border: 1px solid rgba(114, 124, 135, 0.2);
+}
+@media (min-width: 720px) {
+  .scroll-nav nav {
+    overflow-x: scroll;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+}
+@media (min-width: 940px) {
+  .scroll-nav nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    overflow-x: hidden;
+  }
+}/*# sourceMappingURL=projects.css.map */
