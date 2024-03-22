@@ -1,18 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap");
-.scroll-nav {
+#scroll-nav {
   background: #f6f0e6;
   white-space: nowrap;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
 }
-.scroll-nav::-webkit-scrollbar {
+#scroll-nav::-webkit-scrollbar {
   display: none;
 }
-.scroll-nav .scroll-list--item {
+#scroll-nav .scroll-list {
+  list-style: none;
+}
+#scroll-nav .scroll-list .scroll-list--item {
   font-size: 1.25rem;
-  display: inline-block;
-  vertical-align: middle;
+  display: block;
   line-height: 1.5;
   padding: 0.8rem;
   margin: 8px;
@@ -22,18 +24,163 @@
   border: 1px solid rgba(114, 124, 135, 0.2);
 }
 @media (min-width: 720px) {
-  .scroll-nav nav {
+  #scroll-nav .scroll-list {
     overflow-x: scroll;
     display: flex;
     align-items: center;
     justify-content: space-around;
   }
+  #scroll-nav .scroll-list a {
+    transition: all 200ms ease-in-out;
+  }
+  #scroll-nav .scroll-list a:hover {
+    background-color: #232323;
+    color: #f6f0e6;
+    scale: 1.1;
+  }
 }
 @media (min-width: 940px) {
-  .scroll-nav nav {
+  #scroll-nav .scroll-list {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
     overflow-x: hidden;
+  }
+}
+
+.projects-nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 300px);
+  gap: 1rem;
+}
+.projects-nav .projects--card {
+  padding: 1rem;
+}
+.projects-nav .projects--card h4 {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+.projects-nav .projects--card p {
+  font-size: 1.25rem;
+  text-transform: uppercase;
+}
+.projects-nav .art-school {
+  grid-column: 1/3;
+  grid-row: 1/2;
+}
+.projects-nav .busines-center {
+  grid-column: 1/3;
+  grid-row: 2/3;
+}
+.projects-nav .privare-house {
+  grid-column: 3/5;
+  grid-row: 1/3;
+}
+.projects-nav .cottage {
+  grid-column: 1/4;
+  grid-row: 3/5;
+}
+.projects-nav .townhouse {
+  grid-column: 4/5;
+  grid-row: 3/4;
+}
+.projects-nav .duplex {
+  grid-column: 4/5;
+  grid-row: 4/5;
+}
+.projects-nav .card-1 {
+  background: url("../images/art-school.png") no-repeat center center/cover;
+  height: 80%;
+}
+.projects-nav .card-2 {
+  background: url("../images/business-center.png") no-repeat center center/cover;
+  height: 80%;
+}
+.projects-nav .card-3 {
+  background: url("../images/private-house.png") no-repeat center center/cover;
+  height: 90%;
+}
+.projects-nav .card-4 {
+  background: url("../images/cottage-town.png") no-repeat center center/cover;
+  height: 90%;
+}
+.projects-nav .card-5 {
+  background: url("../images/townhouse.png") no-repeat center center/cover;
+  height: 80%;
+}
+.projects-nav .card-6 {
+  background: url("../images/duolex.png") no-repeat center center/cover;
+  height: 80%;
+}
+
+@media (max-width: 600px) {
+  .projects-nav {
+    display: block;
+  }
+  .projects-nav .card-1,
+  .projects-nav .card-2,
+  .projects-nav .card-3,
+  .projects-nav .card-4,
+  .projects-nav .card-5,
+  .projects-nav .card-6 {
+    height: 400px;
+  }
+}
+.contact-form {
+  border: 2px solid #393939;
+  margin: 16px;
+  padding: 16px;
+  position: relative;
+}
+.contact-form h4 {
+  font-size: 2.5rem;
+  font-family: "Bebas Neue";
+}
+.contact-form p {
+  font-size: 1.25rem;
+}
+.contact-form .form-box input {
+  font-size: 1.25rem;
+  height: 4rem;
+  padding: 1rem 1rem 0.5rem 0.5rem;
+  display: block;
+  width: 100%;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #393939;
+  background-color: #f6f0e6;
+  color: #393939;
+}
+.contact-form .form-box .call-me {
+  width: 100%;
+  color: #f6f0e6;
+  background-color: #232323;
+  border: none;
+  height: 3rem;
+  margin: 2rem 0 2rem;
+}
+
+@media (min-width: 720px) {
+  .contact-form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+  }
+  .contact-form .form-left {
+    width: 45%;
+  }
+  .contact-form .form-box {
+    width: 45%;
+  }
+  .contact-form .form-box input:hover {
+    opacity: 0.5;
+  }
+  .contact-form .form-box .call-me:hover {
+    opacity: 0.5;
   }
 }/*# sourceMappingURL=projects.css.map */

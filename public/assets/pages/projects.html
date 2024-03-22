@@ -30,8 +30,8 @@
         </label>
           <ul class="menu">
             <li class="dropdown-list--item"><a href="">Home</a></li>
-            <li class="dropdown-list--item"><a href="">Services</a></li>
-            <li class="dropdown-list--item"><a href="">Projects</a></li>
+            <li class="dropdown-list--item"><a href="/public/index.html">Services</a></li>
+            <li class="dropdown-list--item"><a href="../pages/projects.html">Projects</a></li>
             <li class="dropdown-list--item"><a href="">About us</a></li>
           </ul>
         </div>
@@ -40,14 +40,67 @@
       <hr />
     </header>
     <main>
-        <section class="scroll-nav">
-            <nav>
-              <a class="scroll-list--item" href="">All</a>
-              <a class="scroll-list--item" href="">Family houses</a>
-              <a class="scroll-list--item" href="">Comercial real estate</a>
-              <a class="scroll-list--item" href="">Public buildings</a>
-              <a class="scroll-list--item" href="">Engineering</a>
+        <section id="scroll-nav">
+            <nav class="scroll-list">
+              <li><a class="scroll-list--item" href="">All</a></li>
+              <li><a class="scroll-list--item" href="">Family houses</a></li>
+              <li><a class="scroll-list--item" href="">Comercial real estate</a></li>
+              <li><a class="scroll-list--item" href="">Public buildings</a></li>
+              <li><a class="scroll-list--item" href="">Engineering</a></li>
             </nav>
+        </section>
+        <section class="projects-nav">
+          <div class="projects--card art-school">
+            <div class="card-1"></div>
+            <h4>children's art school</h4>
+            <p>Berlin</p>
+          </div>
+          <div class="projects--card busines-center">
+            <div class="card-2"></div>
+            <h4>Business center</h4>
+            <p>Hamburg</p>
+          </div>
+          <div class="projects--card privare-house">
+            <div class="card-3"></div>
+            <h4>Private house</h4>
+            <p>Rostock</p>
+          </div>
+          <div class="projects--card cottage">
+            <div class="card-4"></div>
+            <h4>Cottage town</h4>
+            <p>Rostock</p>
+          </div>
+          <div class="projects--card townhouse">
+            <div class="card-5"></div>
+            <h4>Townhouse</h4>
+            <p>Magdeburg</p>
+          </div>
+          <div class="projects--card duplex">
+            <div class="card-6"></div>
+            <h4>Duplex</h4>
+            <p>Berlin</p>
+          </div>
+        </section>
+        <section class="contact-form">
+          <div class="form-left">
+            <h4>Have question?</h4>
+            <p>Leave your contacts and we will call you back over 24 hours</p>
+          </div>
+          <form id="form" class="form-box">
+            <label class="lable-title" for="name"></label>
+            <input id="name" type="text" placeholder="Name">
+            <label class="lable-title" for="telephone"></label>
+            <input
+              class="input-container"
+              type="tel"
+              name="telephone"
+              id="telephone"
+              placeholder="Phone "
+            />
+            <button type="submit" class="call-me">
+              Call me <i class="fa-solid fa-arrow-right"></i></span>
+            </button>
+          </form>
         </section>
     </main>
     <footer id="dark-footer">

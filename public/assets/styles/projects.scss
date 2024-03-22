@@ -1,6 +1,6 @@
 @use "../styles/" as *;
 
-.scroll-nav {
+#scroll-nav {
   background: $background-color;
   white-space: nowrap;
   overflow-x: auto;
@@ -9,32 +9,204 @@
   &::-webkit-scrollbar {
     display: none;
   }
-  .scroll-list--item {
-    font-size: $big-font-size;
-    display: inline-block;
-    vertical-align: middle;
-    line-height: 1.5;
-    padding: 0.8rem;
-    margin: $base-margin * 0.5;
-    text-decoration: none;
-    text-transform: uppercase;
-    color: $primary-color;
-    border: 1px solid rgba(#727c87, 0.2);
+
+  .scroll-list {
+    list-style: none;
+
+    .scroll-list--item {
+      font-size: $big-font-size;
+      display: block;
+      line-height: 1.5;
+      padding: 0.8rem;
+      margin: $base-margin * 0.5;
+      text-decoration: none;
+      text-transform: uppercase;
+      color: $primary-color;
+      border: 1px solid rgba(#727c87, 0.2);
+    }
   }
+
   @media (min-width: 720px) {
-    nav {
+    .scroll-list {
       overflow-x: scroll;
       display: flex;
       align-items: center;
       justify-content: space-around;
+      a {
+        transition: all 200ms ease-in-out;
+
+        &:hover {
+          background-color: $primary-color;
+          color: $background-color;
+          scale: 1.1;
+        }
+      }
     }
   }
+
   @media (min-width: 940px) {
-    nav {
+    .scroll-list {
       display: flex;
       align-items: center;
-      justify-content: space-around;
+      justify-content: center;
       overflow-x: hidden;
+    }
+  }
+}
+
+.projects-nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 300px);
+  gap: 1rem;
+
+  .projects--card {
+    padding: 1rem;
+    h4 {
+      font-size: $large-font-size;
+      text-transform: uppercase;
+    }
+    p {
+      font-size: $big-font-size;
+      text-transform: uppercase;
+    }
+  }
+
+  .art-school {
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
+  }
+
+  .busines-center {
+    grid-column: 1 / 3;
+    grid-row: 2 / 3;
+  }
+
+  .privare-house {
+    grid-column: 3 / 5;
+    grid-row: 1 / 3;
+  }
+
+  .cottage {
+    grid-column: 1 / 4;
+    grid-row: 3 / 5;
+  }
+  .townhouse {
+    grid-column: 4 / 5;
+    grid-row: 3 / 4;
+  }
+
+  .duplex {
+    grid-column: 4 / 5;
+    grid-row: 4 / 5;
+  }
+
+  .card-1 {
+    background: url("../images/art-school.png") no-repeat center center/cover;
+    height: 80%;
+  }
+
+  .card-2 {
+    background: url("../images/business-center.png") no-repeat center
+      center/cover;
+    height: 80%;
+  }
+
+  .card-3 {
+    background: url("../images/private-house.png") no-repeat center center/cover;
+    height: 90%;
+  }
+
+  .card-4 {
+    background: url("../images/cottage-town.png") no-repeat center center/cover;
+    height: 90%;
+  }
+
+  .card-5 {
+    background: url("../images/townhouse.png") no-repeat center center/cover;
+    height: 80%;
+  }
+
+  .card-6 {
+    background: url("../images/duolex.png") no-repeat center center/cover;
+    height: 80%;
+  }
+}
+
+@media (max-width: 600px) {
+  .projects-nav {
+    display: block;
+
+    .card-1,
+    .card-2,
+    .card-3,
+    .card-4,
+    .card-5,
+    .card-6 {
+      height: 400px;
+    }
+  }
+}
+
+.contact-form {
+  border: 2px solid #393939;
+  margin: $base-margin;
+  padding: $base-padding;
+  position: relative;
+
+  h4 {
+    font-size: $xl-font-size;
+    font-family: $header-font-family;
+  }
+  p {
+    font-size: $big-font-size;
+  }
+
+  .form-box {
+    input {
+      font-size: $big-font-size;
+      height: 4rem;
+      padding: 1rem 1rem 0.5rem 0.5rem;
+      display: block;
+      width: 100%;
+      border: none;
+      outline: none;
+      border-bottom: 2px solid #393939;
+      background-color: $background-color;
+      color: #393939;
+    }
+
+    .call-me {
+      width: 100%;
+      color: $background-color;
+      background-color: $primary-color;
+      border: none;
+      height: 3rem;
+      margin: 2rem 0 2rem;
+    }
+  }
+}
+@media (min-width: 720px) {
+  .contact-form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    gap: 5rem;
+    .form-left {
+      width: 45%;
+    }
+    .form-box {
+      width: 45%;
+      input:hover {
+        opacity: 0.5;
+      }
+      .call-me:hover {
+        opacity: 0.5;
+      }
     }
   }
 }
