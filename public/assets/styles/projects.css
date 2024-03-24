@@ -57,6 +57,7 @@
   gap: 1rem;
 }
 .projects-nav .projects--card {
+  display: block;
   padding: 1rem;
 }
 .projects-nav .projects--card h4 {

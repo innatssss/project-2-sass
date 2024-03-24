@@ -258,8 +258,18 @@ hr {
 }
 
 .recent-work-img {
-  width: 100%;
   padding: $base-padding;
+  position: relative;
+  overflow: hidden;
+
+  img {
+    max-width: 100%;
+    transform: scale(1);
+    transition: all 0.6s linear;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
 }
 
 .menu-list {
@@ -482,7 +492,7 @@ hr {
     margin: $base-margin * 4;
   }
 
-  //responsive footer 
+  //responsive footer
   .flex-footer {
     display: grid;
     grid-template-columns: repeat(8, 1fr);
@@ -544,5 +554,3 @@ hr {
   height: 100%;
   object-fit: cover;
 }
-
-
