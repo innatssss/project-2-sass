@@ -142,7 +142,6 @@ hr {
   color: #232323;
   font-family: "Quantico";
   font-size: 1rem;
-  display: none;
 }
 
 .h2-header {
@@ -456,8 +455,22 @@ hr {
   }
   #goal-container .card {
     width: 33%;
+    height: 280px;
     padding: 24px;
     transition: all 200ms ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  #goal-container .card .h3-header {
+    font-size: 5rem;
+    font-family: "Bebas Neue";
+  }
+  #goal-container .card .main-text {
+    position: absolute;
+    display: none;
+    padding: 24px;
   }
   .section--family-houses {
     width: 90%;

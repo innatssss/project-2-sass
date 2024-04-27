@@ -160,7 +160,6 @@ hr {
 
 .main-text {
   @include main-text();
-  display: none;
 }
 
 // Work compilation list
@@ -447,8 +446,24 @@ hr {
     margin: 0 $base-margin * 2 $base-margin * 5;
     .card {
       width: 33%;
+      height: 280px;
       padding: 24px;
       transition: all 200ms ease-in-out;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+
+      .h3-header {
+        font-size: $xl-font-size * 2;
+        font-family: $header-font-family;
+      }
+
+      .main-text {
+        position: absolute;
+        display: none;
+        padding: 24px;
+      }
     }
   }
 
