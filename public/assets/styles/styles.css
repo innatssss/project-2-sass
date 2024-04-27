@@ -142,6 +142,7 @@ hr {
   color: #232323;
   font-family: "Quantico";
   font-size: 1rem;
+  display: none;
 }
 
 .h2-header {
@@ -457,10 +458,6 @@ hr {
     width: 33%;
     padding: 24px;
     transition: all 200ms ease-in-out;
-  }
-  #goal-container .card:hover {
-    border: 2px solid #393939;
-    scale: 1.1;
   }
   .section--family-houses {
     width: 90%;

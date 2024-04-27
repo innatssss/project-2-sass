@@ -160,6 +160,7 @@ hr {
 
 .main-text {
   @include main-text();
+  display: none;
 }
 
 // Work compilation list
@@ -448,10 +449,6 @@ hr {
       width: 33%;
       padding: 24px;
       transition: all 200ms ease-in-out;
-      &:hover {
-        border: 2px solid #393939;
-        scale: 1.1;
-      }
     }
   }
 
